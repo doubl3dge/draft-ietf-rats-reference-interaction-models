@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-07-26T10:39:08.719048+00:00",
+  "timestamp": "2022-01-25T15:43:35.656154+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
   "labels": [
     {
@@ -226,15 +226,15 @@
       "id": "MDU6SXNzdWU4MDUyODgyMTc=",
       "title": "Validity of Evidence",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "henkbirkholz",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Based on https://mailarchive.ietf.org/arch/msg/rats/okJriJPpapmZgeOfjbVGVP57bQk/\r\n\r\n> The associated private keys are used by the DAA Issuer to provide\r\n> an Attester with a credential that it can use to convince the\r\n> Verifier that its Evidence is valid.  To keep their anonymity the\r\n> Attester randomizes this credential each time that it is used.\r\n\r\nHow to understand \u201cEvidence is valid\u201d? Does it mean the Evidence is sent from an authentic Attester and not tampered during the conveyance? Or does it mean the Evidence comes from a RoT and is trustable (although the Evidence can diverge from the Reference Values)?",
       "createdAt": "2021-02-10T08:22:04Z",
-      "updatedAt": "2021-04-25T18:35:37Z",
-      "closedAt": null,
+      "updatedAt": "2021-07-26T10:41:26Z",
+      "closedAt": "2021-07-26T10:41:26Z",
       "comments": [
         {
           "author": "henkbirkholz",
@@ -257,15 +257,15 @@
       "id": "MDU6SXNzdWU4MDUyODk0Mjg=",
       "title": "Conveyance of pub-keys",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/issues/8",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "henkbirkholz",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Based on https://mailarchive.ietf.org/arch/msg/rats/okJriJPpapmZgeOfjbVGVP57bQk/\r\n\r\n> A credential is conveyed from an Endorser to an Attester in\r\n> combination with the conveyance of the public key certificates\r\n> from Endorser to Verifier.\r\n\r\nIs there another way to convey the public key certificate, for example, can the public key certificates be conveyed from Endorser to Attester first and then from Attester to Verifier?\r\n",
       "createdAt": "2021-02-10T08:24:02Z",
-      "updatedAt": "2021-04-25T18:33:39Z",
-      "closedAt": null,
+      "updatedAt": "2021-07-26T10:41:02Z",
+      "closedAt": "2021-07-26T10:41:02Z",
       "comments": [
         {
           "author": "eckelmeckel",
@@ -395,15 +395,15 @@
       "id": "MDU6SXNzdWU4MDUyOTMzMTA=",
       "title": "Authentication Secret",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/issues/12",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "henkbirkholz",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Based on https://mailarchive.ietf.org/arch/msg/rats/okJriJPpapmZgeOfjbVGVP57bQk/\r\n\r\n> Authentication Secret:  An Authentication Secret MUST be available\r\n> exclusively to an Attester's Attesting Environment.\r\n> \r\n> The Attester MUST protect Claims with that Authentication Secret,\r\n> thereby proving the authenticity of the Claims included in\r\n> Evidence.  The Authentication Secret MUST be established before\r\n> RATS can take place.\r\n\r\nDoes the Authentication Secret represent the identity of the Attesting Environment?",
       "createdAt": "2021-02-10T08:30:16Z",
-      "updatedAt": "2021-04-28T08:44:24Z",
-      "closedAt": null,
+      "updatedAt": "2021-07-26T10:48:13Z",
+      "closedAt": "2021-07-26T10:48:13Z",
       "comments": [
         {
           "author": "henkbirkholz",
@@ -432,6 +432,13 @@
           "body": "After talking with Wei I came to realize (again) that the use of a TPM creates this \"interesting\" setup of the two layers of Attesting Environments:\r\n\r\nBoth the first layer that is the BIOS and the second layer that is the Bootloader share an Attesting Envirment component that is the TPM. In acronyms, the BIOS 's claim collection capability and the TPM that is an RTS and RTR compose the first Attesting Environment. The Bootloader's claim collection capability in combination with the identical TPM compose the seceond Attesting Environment. As a result, I agree that the sentence \"Each Authentication Secret is uniquely associated with a distinguishable Attesting Environment\" does not really allow for that scnerario and needs some help.",
           "createdAt": "2021-04-28T08:42:51Z",
           "updatedAt": "2021-04-28T08:44:24Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "fixed in #44 ",
+          "createdAt": "2021-07-26T10:48:13Z",
+          "updatedAt": "2021-07-26T10:48:13Z"
         }
       ]
     },
@@ -478,15 +485,15 @@
       "id": "MDU6SXNzdWU4MDUyOTU4OTM=",
       "title": "Attester Identity in DAA",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/issues/14",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "henkbirkholz",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Based on https://mailarchive.ietf.org/arch/msg/rats/okJriJPpapmZgeOfjbVGVP57bQk/\r\n\r\n> Attester Identity ('attesterIdentity'):  _mandatory_\r\n> In DAA, the Attester's identity is not revealed to the verifier.\r\n> The Attester is issued with a credential by the Endorser that is\r\n> randomized and then used to anonymously confirm the validity of\r\n> their evidence.  The evidence is verified using the Endorser's\r\n> public key.\r\n\r\nI think here means the DAA credential represents the Attester Identity.",
       "createdAt": "2021-02-10T08:34:38Z",
-      "updatedAt": "2021-04-25T16:27:25Z",
-      "closedAt": null,
+      "updatedAt": "2021-07-26T10:41:15Z",
+      "closedAt": "2021-07-26T10:41:15Z",
       "comments": [
         {
           "author": "henkbirkholz",
@@ -554,15 +561,15 @@
       "id": "MDU6SXNzdWU4MDUyOTgyMTk=",
       "title": "What does a DAA credential represent actually?",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/issues/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "henkbirkholz",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Based on https://mailarchive.ietf.org/arch/msg/rats/okJriJPpapmZgeOfjbVGVP57bQk/\r\n\r\n> Authentication Secret IDs ('authSecID'):  _mandatory_\r\n> In DAA, Authentication Secret IDs are represented by the Endorser\r\n> (DAA issuer)'s public key that MUST be used to create DAA\r\n> credentials for the corresponding Authentication Secrets used to\r\n> protect Evidence.\r\n> In DAA, an Authentication Secret ID does not identify a unique\r\n> Attesting Environment but associated with a group of Attesting\r\n> Environments.  This is because an Attesting Environment should not\r\n> be distinguishable and the DAA credential which represents the\r\n> Attesting Environment is randomised each time it used.\r\n\r\nIn my understanding, here says that the DAA credential identities the Attesting Environment. Compared with the description in the \u201cAttester Identity\u201d part, what does the DAA credential represent actually?",
       "createdAt": "2021-02-10T08:38:25Z",
-      "updatedAt": "2021-04-27T03:18:22Z",
-      "closedAt": null,
+      "updatedAt": "2021-07-26T10:41:52Z",
+      "closedAt": "2021-07-26T10:41:52Z",
       "comments": [
         {
           "author": "Liqun-Chen",
@@ -854,7 +861,7 @@
       "id": "MDU6SXNzdWU5MzkzMTQ5MDc=",
       "title": "Publish-Subscripe Attestation may be nice to have",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/issues/42",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "eckelmeckel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -863,9 +870,17 @@
       ],
       "body": "A publish-subscribe model for remote attestation would be nice to have.",
       "createdAt": "2021-07-07T22:38:40Z",
-      "updatedAt": "2021-07-07T22:38:40Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2021-07-26T10:49:18Z",
+      "closedAt": "2021-07-26T10:49:18Z",
+      "comments": [
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "Considered out-of-scope, see https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/43#pullrequestreview-714699122",
+          "createdAt": "2021-07-26T10:49:18Z",
+          "updatedAt": "2021-07-26T10:49:18Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1482,7 +1497,7 @@
     {
       "number": 43,
       "id": "MDExOlB1bGxSZXF1ZXN0Njg1NTU2OTY2",
-      "title": "Introduced publish-subscribe model.",
+      "title": "Draft: Introduced publish-subscribe model.",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/43",
       "state": "OPEN",
       "author": "eckelmeckel",
@@ -1493,7 +1508,7 @@
       ],
       "body": "Resolves #42.\r\n* Introduced publish-subscribe model.\r\n* Removed \"delta\" TODO as there was nothing to be fixed.\r\n* Fixed line break in uni-directional diagram.\r\n\r\nSigned-off-by: Michael Eckel <michael.eckel@sit.fraunhofer.de>",
       "createdAt": "2021-07-07T22:40:54Z",
-      "updatedAt": "2021-07-12T20:00:12Z",
+      "updatedAt": "2021-07-26T10:45:15Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
       "baseRefName": "master",
       "baseRefOid": "92cb3a429b31792c6243e24c745643e68f7e7ebf",
@@ -1513,6 +1528,102 @@
           "updatedAt": "2021-07-12T20:00:12Z"
         }
       ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NzE0Njk5MTIy",
+          "commit": {
+            "abbreviatedOid": "e05ce9c"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "Most of this content should fuel an additional I-D that provides guidance and orchestration, as it would add new roles and has to be harmonized with other I-Ds close to adoptions (such as network device subscription). Not abandoned, but deferred.",
+          "createdAt": "2021-07-26T10:44:35Z",
+          "updatedAt": "2021-07-26T10:44:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "id": "MDExOlB1bGxSZXF1ZXN0Njk2OTEwNjYz",
+      "title": "fixex #12",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/44",
+      "state": "MERGED",
+      "author": "henkbirkholz",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-07-26T10:45:46Z",
+      "updatedAt": "2021-07-26T10:47:40Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "baseRefName": "master",
+      "baseRefOid": "a0baf21ebaffc48bee7ff6dc31609258ab528077",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "headRefName": "auth-secret",
+      "headRefOid": "474b2e01812c043d734f38d1de3d3c2bbf8681ef",
+      "closedAt": "2021-07-26T10:47:40Z",
+      "mergedAt": "2021-07-26T10:47:40Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "38a0092d442c2428540f36c3a024a700d442be37"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 45,
+      "id": "MDExOlB1bGxSZXF1ZXN0Njk2OTQzNTU1",
+      "title": "nits fixed by Michael transplanted here from PR #43",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/45",
+      "state": "MERGED",
+      "author": "henkbirkholz",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-07-26T11:29:31Z",
+      "updatedAt": "2021-07-26T11:30:52Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "baseRefName": "master",
+      "baseRefOid": "38a0092d442c2428540f36c3a024a700d442be37",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "headRefName": "michaels-polish",
+      "headRefOid": "919c676fbd4e81eeaec8ab841bc1e5f5102ea77a",
+      "closedAt": "2021-07-26T11:30:52Z",
+      "mergedAt": "2021-07-26T11:30:52Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "0d3b884e7bcf8401e4edd529b2768f321a132c35"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 46,
+      "id": "PR_kwDOEYizNM4xjoA2",
+      "title": "First draft of adding Interaction Model examples",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/46",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "@henkbirkholz : Please let me know, your views as to how is the information flow and anything else, we need to add?",
+      "createdAt": "2022-01-25T12:46:36Z",
+      "updatedAt": "2022-01-25T15:43:13Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "baseRefName": "master",
+      "baseRefOid": "0d3b884e7bcf8401e4edd529b2768f321a132c35",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "headRefName": "rats-example-branch",
+      "headRefOid": "d56dbd18f24d5ca18510eda7e91bb4d344c144ea",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
