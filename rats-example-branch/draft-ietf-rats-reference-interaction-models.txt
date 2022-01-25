@@ -5,11 +5,11 @@
 RATS Working Group                                           H. Birkholz
 Internet-Draft                                                  M. Eckel
 Intended status: Informational                            Fraunhofer SIT
-Expires: 27 January 2022                                          W. Pan
+Expires: 29 July 2022                                             W. Pan
                                                      Huawei Technologies
                                                                  E. Voit
                                                                    Cisco
-                                                            26 July 2021
+                                                         25 January 2022
 
 
      Reference Interaction Models for Remote Attestation Procedures
@@ -51,11 +51,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 January 2022.
+   This Internet-Draft will expire on 29 July 2022.
 
 Copyright Notice
 
-   Copyright (c) 2021 IETF Trust and the persons identified as the
+   Copyright (c) 2022 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -63,9 +63,9 @@ Copyright Notice
    license-info) in effect on the date of publication of this document.
    Please review these documents carefully, as they describe your rights
    and restrictions with respect to this document.  Code Components
-   extracted from this document must include Simplified BSD License text
-   as described in Section 4.e of the Trust Legal Provisions and are
-   provided without warranty as described in the Simplified BSD License.
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
 
 Table of Contents
 
@@ -79,6 +79,8 @@ Table of Contents
    6.  Generic Information Elements
    7.  Interaction Models
      7.1.  Challenge/Response Remote Attestation
+       7.1.1.  Models and example sequences of Challenge/Response
+               Remote Attestation
      7.2.  Uni-Directional Remote Attestation
      7.3.  Streaming Remote Attestation
    8.  Additional Application-Specific Requirements
@@ -492,6 +494,93 @@ Table of Contents
    an Attester, which enables Relying Parties, for example, to assess an
    Attester's trustworthiness.
 
+7.1.1.  Models and example sequences of Challenge/Response Remote
+        Attestation
+
+   According to RATS Architecture Document[I-D.ietf-rats-architecture],
+   two reference models for Challenge/Response Attestation has been
+   proposed.  This sections highlights the information flow bewteen the
+   Attestor, Verifier and Relying Party undergoing Remote Attestation
+   Procedure, using these models.
+
+   1.  Passport Model
+
+   The passport modle is so named because of its resemblance to how
+   nations issue passports to their citizens.  In this Model, the
+   attestation sequence is a two step procedure.  In the first step, an
+   Attester conveys Evidence to a Verifier which compares the Evidence
+   against its appraisal policy.  The Verifier then gives back an
+   Attestation Result to the Attester, which simply caches it.  In the
+   second step, the Attester presents the Attestation Result (and
+   possibly additional Claims/evidence) to a Relying Party, which then
+   compares this information against its own appraisal policy to
+   establish the trustworthiness of the attestor.
+
+.----------.                                                .----------.                            .----------.
+| Attester |                                                | Verifier |                            | R. P.    |
+'----------'                                                '----------'                            '----------'
+     |                                                            |                                      |
+  generateClaims(attestingEnvironment)                            |                                      |
+     | => claims, eventLogs                                       |                                      |
+     |                                                            |                                      |
+     | <-- requestAttestation(handle, authSecIDs, claimSelection) |                                      |
+     |                                                            |                                      |
+  collectClaims(claims, claimSelection)                           |                                      |
+     | => collectedClaims                                         |                                      |
+     |                                                            |                                      |
+  generateEvidence(handle, authSecIDs, collectedClaims)           |                                      |
+     | => evidence                                                |                                      |
+     |                                                            |                                      |
+     | evidence, eventLogs -------------------------------------> |                                      |
+     |                                                            |                                      |
+     |                appraiseEvidence(evidence, eventLogs, refValues)                                   |
+     |                                                            |                                      |
+     |   attestationResults <-----------------------------------  |                                      |
+     |                                                            |                                      |
+     | attestationResults(evidence, results) ----------------------------------------------------------> |
+     |                                                            |                                      |
+     |                                                            |                                      | appraiseResults(evidence, results)
+     |                                                            |                                      |
+     |                                                            |                                      |
+
+   1.  BackGround Check Model The background-check model is so named
+       because of the resemblance of how employers and volunteer
+       organizations perform background checks.  In this model, the
+       attestation sequence is initiated by a Relying Party.  The
+       Attestor conveys Evidence to the Relying Party.  Upon receiving
+       evidence the Relying Party initiates a session with the Verifier.
+       Once session is established, it forwards the received Evidence to
+       the Verfier.  The Verifier, compares the received Evidence to its
+       appraisal policy for evidence and returns an Attestation Result
+       to the Relying Party.  The Relying Party then compares the
+       Attestation Result against its own appraisal policy.
+
+.----------.                                                 .----------.                            .----------.
+| Attester |                                                 | R. P.    |                            | Verifier |
+'----------'                                                 '----------'                            '----------'
+     |                                                            |                                      |
+  generateClaims(attestingEnvironment)                            |                                      |
+     | => claims, eventLogs                                       |                                      |
+     |                                                            |                                      |
+     | <-- requestAttestation(handle, authSecIDs, claimSelection) |                                      |
+     |                                                            |                                      |
+  collectClaims(claims, claimSelection)                           |                                      |
+     | => collectedClaims                                         |                                      |
+     |                                                            |                                      |
+  generateEvidence(handle, authSecIDs, collectedClaims)           |                                      |
+     | => evidence                                                |                                      |
+     |                                                            |                                      |
+     | evidence, eventLogs -------------------------------------> |                                      |
+     |                                                            |                                      |
+     |                                                            | handle, evidence, eventLogs -------> |
+     |                                                            |                                      |appraiseEvidence(evidence, eventLogs, refValues)
+     |                                                            |                                      |
+     |                                                            |  attestationResults <--------------- |
+     |                                                            |   (evidence, results)                |
+     |                                                            |                                      |
+     |                       appraiseResults(evidence, results)   |                                      |
+     |                                                            |                                      |
+
 7.2.  Uni-Directional Remote Attestation
 
 .----------.                       .--------------------.   .----------.
@@ -569,7 +658,7 @@ Table of Contents
    While periodically pushing Evidence to the Verifier, the Attester
    only needs to generate and convey evidence generated from Claim
    values that have changed and new Event Logs entries since the
-   previous conveyance.  This updates reflecting the differences are
+   previous conveyance.  These updates reflecting the differences are
    called "delta" in the sequence diagram above.
 
    Effectively, the Uni-Directional model allows for a series of
@@ -766,73 +855,72 @@ Table of Contents
    [BCP205]   Sheffer, Y. and A. Farrel, "Improving Awareness of Running
               Code: The Implementation Status Section", BCP 205,
               RFC 7942, DOI 10.17487/RFC7942, July 2016,
-              <https://datatracker.ietf.org/doc/html/rfc7942>.
+              <https://www.rfc-editor.org/rfc/rfc7942>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <https://datatracker.ietf.org/doc/html/rfc2119>.
+              <https://www.rfc-editor.org/rfc/rfc2119>.
 
    [RFC3161]  Adams, C., Cain, P., Pinkas, D., and R. Zuccherato,
               "Internet X.509 Public Key Infrastructure Time-Stamp
               Protocol (TSP)", RFC 3161, DOI 10.17487/RFC3161, August
-              2001, <https://datatracker.ietf.org/doc/html/rfc3161>.
+              2001, <https://www.rfc-editor.org/rfc/rfc3161>.
 
    [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
               Housley, R., and W. Polk, "Internet X.509 Public Key
               Infrastructure Certificate and Certificate Revocation List
               (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
-              <https://datatracker.ietf.org/doc/html/rfc5280>.
+              <https://www.rfc-editor.org/rfc/rfc5280>.
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
-              October 2013,
-              <https://datatracker.ietf.org/doc/html/rfc7049>.
+              October 2013, <https://www.rfc-editor.org/rfc/rfc7049>.
 
    [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
               Application Protocol (CoAP)", RFC 7252,
               DOI 10.17487/RFC7252, June 2014,
-              <https://datatracker.ietf.org/doc/html/rfc7252>.
+              <https://www.rfc-editor.org/rfc/rfc7252>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
    [RFC8610]  Birkholz, H., Vigano, C., and C. Bormann, "Concise Data
               Definition Language (CDDL): A Notational Convention to
               Express Concise Binary Object Representation (CBOR) and
               JSON Data Structures", RFC 8610, DOI 10.17487/RFC8610,
-              June 2019,
-              <https://datatracker.ietf.org/doc/html/rfc8610>.
+              June 2019, <https://www.rfc-editor.org/rfc/rfc8610>.
 
 12.2.  Informative References
 
    [DAA]      Brickell, E., Camenisch, J., and L. Chen, "Direct
-              Anonymous Attestation", ACM Proceedings of the 11rd ACM
+              Anonymous Attestation", ACM Proceedings of the 11th ACM
               conference on Computer and Communications Security,
               page 132-145, 2004.
 
    [I-D.birkholz-rats-tuda]
               Fuchs, A., Birkholz, H., McDonald, I. E., and C. Bormann,
               "Time-Based Uni-Directional Attestation", Work in
-              Progress, Internet-Draft, draft-birkholz-rats-tuda-05, 12
-              July 2021, <https://datatracker.ietf.org/doc/html/draft-
-              birkholz-rats-tuda-05>.
+              Progress, Internet-Draft, draft-birkholz-rats-tuda-06, 12
+              January 2022, <https://datatracker.ietf.org/doc/html/
+              draft-birkholz-rats-tuda-06>.
 
    [I-D.ietf-rats-architecture]
               Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote Attestation Procedures Architecture", Work
               in Progress, Internet-Draft, draft-ietf-rats-architecture-
-              12, 23 April 2021, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-architecture-12>.
+              14, 9 December 2021,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
+              architecture-14>.
 
    [I-D.ietf-rats-tpm-based-network-device-attest]
               Fedorkow, G., Voit, E., and J. Fitzgerald-McKay, "TPM-
               based Network Device Remote Integrity Verification", Work
               in Progress, Internet-Draft, draft-ietf-rats-tpm-based-
-              network-device-attest-07, 10 June 2021,
+              network-device-attest-10, 30 December 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
-              tpm-based-network-device-attest-07>.
+              tpm-based-network-device-attest-10>.
 
    [turtles]  Rudnicki, R., "Turtles All the Way Down: Foundation,
               Edifice, and Ruin in Faulkner and McCarthy", The Faulkner
