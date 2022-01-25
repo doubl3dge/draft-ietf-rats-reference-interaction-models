@@ -497,11 +497,10 @@ Table of Contents
 7.1.1.  Models and example sequences of Challenge/Response Remote
         Attestation
 
-   According to RATS Architecture Document, two reference models for
-   Challenge/Response Attestation has been proposed.  This sections
-   highlights the information flow bewteen the Attestor, Verifier and
-   Relying Party undergoing Remote Attestation Procedure, using these
-   models.
+   According to RATS Architecture, two reference models for Challenge/
+   Response Attestation have been proposed.  This sections highlights
+   the information flow bewteen the Attestor, Verifier and Relying Party
+   undergoing Remote Attestation Procedure, using these models.
 
    1.  Passport Model
 
@@ -546,8 +545,10 @@ Table of Contents
    The background-check model is so named because of the resemblance of
    how employers and volunteer organizations perform background checks.
    In this model, the attestation sequence is initiated by a Relying
-   Party.  The Attestor conveys Evidence to the Relying Party.  Upon
-   receiving evidence the Relying Party initiates a session with the
+   Party.  The Attestor conveys Evidence to the Relying Party, which
+   does not process its payload, but realys the message and optionally
+   check its signature against a policed trust anchor store.  Upon
+   receiving the evidence the Relying Party initiates a session with the
    Verifier.  Once session is established, it forwards the received
    Evidence to the Verfier.  The Verifier, compares the received
    Evidence to its appraisal policy for evidence and returns an
