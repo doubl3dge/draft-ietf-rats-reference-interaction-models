@@ -497,11 +497,11 @@ Table of Contents
 7.1.1.  Models and example sequences of Challenge/Response Remote
         Attestation
 
-   According to RATS Architecture Document[I-D.ietf-rats-architecture],
-   two reference models for Challenge/Response Attestation has been
-   proposed.  This sections highlights the information flow bewteen the
-   Attestor, Verifier and Relying Party undergoing Remote Attestation
-   Procedure, using these models.
+   According to RATS Architecture Document, two reference models for
+   Challenge/Response Attestation has been proposed.  This sections
+   highlights the information flow bewteen the Attestor, Verifier and
+   Relying Party undergoing Remote Attestation Procedure, using these
+   models.
 
    1.  Passport Model
 

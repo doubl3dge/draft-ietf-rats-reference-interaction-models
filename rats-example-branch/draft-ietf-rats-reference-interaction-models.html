@@ -14,11 +14,11 @@
 Three conveying mechanisms -- Challenge/Response, Uni-Directional, and Streaming Remote Attestation  -- are illustrated and defined.
 Analogously, a general overview about the information elements typically used by corresponding conveyance protocols are highlighted. 
     " name="description">
-<meta content="xml2rfc 3.12.0" name="generator">
+<meta content="xml2rfc 3.11.1" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-rats-reference-interaction-models-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.0
+  xml2rfc 3.11.1
     Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -27,7 +27,7 @@ Analogously, a general overview about the information elements typically used by
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.6.5
+    lxml 4.6.4
     pycountry 20.7.3
     pyflakes 2.3.1
     PyYAML 5.4.1
@@ -1607,8 +1607,7 @@ The final output of the Verifier are Attestation Results. Attestation Results co
           <h4 id="name-models-and-example-sequence">
 <a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-models-and-example-sequence" class="section-name selfRef">Models and example sequences of Challenge/Response Remote Attestation</a>
           </h4>
-<p id="section-7.1.1-1">According to RATS Architecture Document<span>[<a href="#I-D.ietf-rats-architecture" class="xref">I-D.ietf-rats-architecture</a>]</span>, two reference models for Challenge/Response Attestation has been proposed. This sections highlights the 
-information flow bewteen the Attestor, Verifier and Relying Party undergoing Remote Attestation Procedure, using these models.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1.1-1">According to RATS Architecture Document, two reference models for Challenge/Response Attestation has been proposed. This sections highlights the information flow bewteen the Attestor, Verifier and Relying Party undergoing Remote Attestation Procedure, using these models.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-7.1.1-2">
 <li id="section-7.1.1-2.1">Passport Model<a href="#section-7.1.1-2.1" class="pilcrow">¶</a>
 </li>
@@ -1648,7 +1647,7 @@ then gives back an Attestation Result to the Attester, which simply caches it. I
 <li id="section-7.1.1-5.1">BackGround Check Model<a href="#section-7.1.1-5.1" class="pilcrow">¶</a>
 </li>
           </ol>
-<p id="section-7.1.1-6">The background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attestor conveys Evidence to the Relying Party. Upon receiving evidence the Relying Party initiates a session with the Verifier. Once session is established, it forwards the received Evidence to the Verfier. The Verifier, compares the received Evidence to its appraisal policy for evidence and returns an Attestation Result to the Relying Party. The Relying Party then compares the 
+<p id="section-7.1.1-6">The background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attestor conveys Evidence to the Relying Party. Upon receiving evidence the Relying Party initiates a session with the Verifier. Once session is established, it forwards the received Evidence to the Verfier. The Verifier, compares the received Evidence to its appraisal policy for evidence and returns an Attestation Result to the Relying Party. The Relying Party then compares the
 Attestation Result against its own appraisal policy.<a href="#section-7.1.1-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-7.1.1-7">
 <pre>
