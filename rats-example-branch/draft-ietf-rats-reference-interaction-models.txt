@@ -497,10 +497,11 @@ Table of Contents
 7.1.1.  Models and example sequences of Challenge/Response Remote
         Attestation
 
-   According to RATS Architecture, two reference models for Challenge/
-   Response Attestation have been proposed.  This sections highlights
-   the information flow bewteen the Attestor, Verifier and Relying Party
-   undergoing Remote Attestation Procedure, using these models.
+   According to the RATS Architecture, two reference models for
+   Challenge/Response Attestation have been proposed.  This sections
+   highlights the information flows bewteen the Attestor, Verifier and
+   Relying Party undergoing Remote Attestation Procedure, using these
+   models.
 
    1.  Passport Model
 
@@ -550,10 +551,11 @@ Table of Contents
    check its signature against a policed trust anchor store.  Upon
    receiving the evidence the Relying Party initiates a session with the
    Verifier.  Once session is established, it forwards the received
-   Evidence to the Verfier.  The Verifier, compares the received
-   Evidence to its appraisal policy for evidence and returns an
-   Attestation Result to the Relying Party.  The Relying Party then
-   compares the Attestation Result against its own appraisal policy.
+   Evidence to the Verfier.  The Verifier, appraises the received
+   Evidence according to its appraisal policy for evidence and returns a
+   coresponding Attestation Result to the Relying Party.  The Relying
+   Party then checks the Attestation Result against its own appraisal
+   policy to conlcude attestation.
 
 .----------.                                                 .----------.                            .----------.
 | Attester |                                                 | R. P.    |                            | Verifier |
