@@ -555,7 +555,7 @@ Table of Contents
    Evidence according to its appraisal policy for evidence and returns a
    coresponding Attestation Result to the Relying Party.  The Relying
    Party then checks the Attestation Result against its own appraisal
-   policy to conlcude attestation.
+   policy to conclude attestation.
 
 .----------.                                                 .----------.                            .----------.
 | Attester |                                                 | R. P.    |                            | Verifier |
