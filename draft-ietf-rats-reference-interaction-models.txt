@@ -514,7 +514,7 @@ Table of Contents
    second step, the Attester presents the Attestation Result (and
    possibly additional Claims/evidence) to a Relying Party, which then
    compares this information against its own appraisal policy to
-   establish the trustworthiness of the attester.
+   establish the trustworthiness of the Attester.
 
 .----------.                                                .----------.                            .----------.
 | Attester |                                                | Verifier |                            | R. P.    |
