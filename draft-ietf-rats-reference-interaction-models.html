@@ -14,11 +14,11 @@
 Three conveying mechanisms -- Challenge/Response, Uni-Directional, and Streaming Remote Attestation  -- are illustrated and defined.
 Analogously, a general overview about the information elements typically used by corresponding conveyance protocols are highlighted. 
     " name="description">
-<meta content="xml2rfc 3.12.0" name="generator">
+<meta content="xml2rfc 3.11.1" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-rats-reference-interaction-models-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.0
+  xml2rfc 3.11.1
     Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -27,7 +27,7 @@ Analogously, a general overview about the information elements typically used by
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.6.5
+    lxml 4.6.4
     pycountry 20.7.3
     pyflakes 2.3.1
     PyYAML 5.4.1
@@ -1612,9 +1612,9 @@ The final output of the Verifier are Attestation Results. Attestation Results co
 <li id="section-7.1.1-2.1">Passport Model<a href="#section-7.1.1-2.1" class="pilcrow">¶</a>
 </li>
           </ol>
-<p id="section-7.1.1-3">The passport model is so named because of its resemblance to how nations issue passports to their citizens. In this Model, the attestation sequence is a
+<p id="section-7.1.1-3">The passport model is so named because of its resemblance to how nations issue passports to their citizens. In this model, the attestation sequence is a
 two step procedure. In the first step, an Attester conveys Evidence to a Verifier which compares the Evidence against its appraisal policy.  The Verifier
-then gives back an Attestation Result to the Attester, which simply caches it. In the second step, the Attester presents the Attestation Result (and possibly additional Claims/evidence) to a Relying Party, which then compares this information against its own appraisal policy to establish the trustworthiness of the attestor.<a href="#section-7.1.1-3" class="pilcrow">¶</a></p>
+then gives back an Attestation Result to the Attester, which simply caches it. In the second step, the Attester presents the Attestation Result (and possibly additional Claims/evidence) to a Relying Party, which then compares this information against its own appraisal policy to establish the trustworthiness of the attester.<a href="#section-7.1.1-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-7.1.1-4">
 <pre>
 .----------.                                                .----------.                            .----------.
@@ -1639,7 +1639,7 @@ then gives back an Attestation Result to the Attester, which simply caches it. I
      |   attestationResults &lt;-----------------------------------  |                                      |
      |                                                            |                                      |
      | attestationResults(evidence, results) ----------------------------------------------------------&gt; |      |                                                            |                                      |
-     |                                                            |                                      |      |                                                            |                                      | appraiseResults()
+     |                                                            |                                      |      |                                                            |                                      | appraiseResult()
      |                                                            |                                      |
 </pre><a href="#section-7.1.1-4" class="pilcrow">¶</a>
 </div>
@@ -1668,7 +1668,7 @@ then gives back an Attestation Result to the Attester, which simply caches it. I
      | evidence, eventLogs -------------------------------------&gt; |                                      |
      |                                                            |                                      |
      |                                                            | handle, evidence, eventLogs -------&gt; |
-     |                                                            |                                      |appraiseEvidence()
+     |                                                            |                                      |appraiseEvidenc()
      |                                                            |                                      |
      |                                                            |  attestationResults &lt;--------------- |
      |                                                            |   (evidence, results)                |
