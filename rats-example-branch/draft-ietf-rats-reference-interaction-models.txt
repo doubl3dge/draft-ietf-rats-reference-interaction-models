@@ -505,7 +505,7 @@ Table of Contents
 
    1.  Passport Model
 
-   The passport modle is so named because of its resemblance to how
+   The passport model is so named because of its resemblance to how
    nations issue passports to their citizens.  In this Model, the
    attestation sequence is a two step procedure.  In the first step, an
    Attester conveys Evidence to a Verifier which compares the Evidence
