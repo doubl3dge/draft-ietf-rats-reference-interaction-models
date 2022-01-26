@@ -5,11 +5,11 @@
 RATS Working Group                                           H. Birkholz
 Internet-Draft                                                  M. Eckel
 Intended status: Informational                            Fraunhofer SIT
-Expires: 29 July 2022                                             W. Pan
+Expires: 30 July 2022                                             W. Pan
                                                      Huawei Technologies
                                                                  E. Voit
                                                                    Cisco
-                                                         25 January 2022
+                                                         26 January 2022
 
 
      Reference Interaction Models for Remote Attestation Procedures
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 July 2022.
+   This Internet-Draft will expire on 30 July 2022.
 
 Copyright Notice
 
@@ -498,8 +498,8 @@ Table of Contents
         Attestation
 
    According to the RATS Architecture, two reference models for
-   Challenge/Response Attestation have been proposed.  This sections
-   highlights the information flows bewteen the Attestor, Verifier and
+   Challenge/Response Attestation have been proposed.  This section
+   highlights the information flows bewteen the Attester, Verifier and
    Relying Party undergoing Remote Attestation Procedure, using these
    models.
 
@@ -546,14 +546,14 @@ Table of Contents
    The background-check model is so named because of the resemblance of
    how employers and volunteer organizations perform background checks.
    In this model, the attestation sequence is initiated by a Relying
-   Party.  The Attestor conveys Evidence to the Relying Party, which
+   Party.  The Attester conveys Evidence to the Relying Party, which
    does not process its payload, but realys the message and optionally
    check its signature against a policed trust anchor store.  Upon
    receiving the evidence the Relying Party initiates a session with the
    Verifier.  Once session is established, it forwards the received
    Evidence to the Verfier.  The Verifier, appraises the received
-   Evidence according to its appraisal policy for evidence and returns a
-   coresponding Attestation Result to the Relying Party.  The Relying
+   Evidence according to its appraisal policy for Evidence and returns a
+   corresponding Attestation Result to the Relying Party.  The Relying
    Party then checks the Attestation Result against its own appraisal
    policy to conclude attestation.
 
