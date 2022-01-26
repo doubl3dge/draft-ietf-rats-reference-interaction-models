@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-01-25T15:43:35.656154+00:00",
+  "timestamp": "2022-01-26T17:51:51.470785+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
   "labels": [
     {
@@ -1499,7 +1499,7 @@
       "id": "MDExOlB1bGxSZXF1ZXN0Njg1NTU2OTY2",
       "title": "Draft: Introduced publish-subscribe model.",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/43",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "eckelmeckel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1508,14 +1508,14 @@
       ],
       "body": "Resolves #42.\r\n* Introduced publish-subscribe model.\r\n* Removed \"delta\" TODO as there was nothing to be fixed.\r\n* Fixed line break in uni-directional diagram.\r\n\r\nSigned-off-by: Michael Eckel <michael.eckel@sit.fraunhofer.de>",
       "createdAt": "2021-07-07T22:40:54Z",
-      "updatedAt": "2021-07-26T10:45:15Z",
+      "updatedAt": "2022-01-26T17:37:53Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
       "baseRefName": "master",
       "baseRefOid": "92cb3a429b31792c6243e24c745643e68f7e7ebf",
       "headRepository": "eckelmeckel/draft-ietf-rats-reference-interaction-models",
       "headRefName": "add-pubsub-attestation-model",
       "headRefOid": "e05ce9cdfc1dbdcde5d2e01010e5cd16d7310aca",
-      "closedAt": null,
+      "closedAt": "2022-01-26T17:37:53Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -1526,6 +1526,13 @@
           "body": "I think that this Pull is premature for commit.   Several reasons include:\r\n\r\n(1) It introduces new terms / roles which are not included in the Architecture document.  E.g., the PubSub server.  \r\n\r\n(2) This seems to be a very large scope change to an already adopted document.  Likely there needs to be discussion on the list of the meaning of the functionality.\r\n\r\n(3)  There is draft-birkholz-rats-network-device-subscription which includes items like Subscription identifier.  However this PR doesn't describe the relationship to draft-birkholz-rats-network-device-subscription.\r\n\r\n(4)  Basic questions on capability discovery (like how to know what streams are available for subscription) are already handled elsewhere in places like NETCONF, RESTCONF, etc.  Do we need additional documents describing these functions specific to RATS?",
           "createdAt": "2021-07-12T20:00:12Z",
           "updatedAt": "2021-07-12T20:00:12Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "Abandoning this item for the moment to become future work in a different document.",
+          "createdAt": "2022-01-26T17:37:53Z",
+          "updatedAt": "2022-01-26T17:37:53Z"
         }
       ],
       "reviews": [
@@ -1608,23 +1615,85 @@
       "state": "OPEN",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "henkbirkholz",
+        "yogeshbdeshpande"
+      ],
       "labels": [],
       "body": "@henkbirkholz : Please let me know, your views as to how is the information flow and anything else, we need to add?",
       "createdAt": "2022-01-25T12:46:36Z",
-      "updatedAt": "2022-01-25T15:43:13Z",
+      "updatedAt": "2022-01-26T17:51:34Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
       "baseRefName": "master",
       "baseRefOid": "0d3b884e7bcf8401e4edd529b2768f321a132c35",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
       "headRefName": "rats-example-branch",
-      "headRefOid": "d56dbd18f24d5ca18510eda7e91bb4d344c144ea",
+      "headRefOid": "8e2b32c7d50d952ce6ba4b375e99d9ba9f1a6f95",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOEYizNM4zbY1o",
+          "commit": {
+            "abbreviatedOid": "e918295"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "PENDING",
+          "body": "",
+          "createdAt": "2022-01-25T20:16:41Z",
+          "updatedAt": "2022-01-25T20:16:41Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nAccording to the RATS Architecture, two reference models for Challenge/Response Attestation have been proposed. This sections highlights the information flows bewteen the Attester, Verifier and Relying Party undergoing Remote Attestation Procedure, using these models.\r\n```",
+              "createdAt": "2022-01-25T20:16:41Z",
+              "updatedAt": "2022-01-25T20:16:41Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nThe passport model is so named because of its resemblance to how nations issue passports to their citizens. In this Model, the attestation sequence is a\r\n```",
+              "createdAt": "2022-01-25T20:17:06Z",
+              "updatedAt": "2022-01-25T20:17:06Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "```suggestion\r\nThe background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attester conveys Evidence to the Relying Party, which does not process its payload, but relays the message and optionally check its signature against a policed trust anchor store. Upon receiving the evidence the Relying Party initiates a session with the Verifier. Once session is established, it forwards the received Evidence to the Verfier. The Verifier, appraises the received Evidence according to its appraisal policy for evidence and returns a corresponding Attestation Result to the Relying Party. The Relying Party then checks the Attestation Result against its own appraisal policy to conclude attestation.\r\n```",
+              "createdAt": "2022-01-25T20:18:16Z",
+              "updatedAt": "2022-01-25T20:18:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zaM98",
+          "commit": {
+            "abbreviatedOid": "d56dbd1"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2022-01-25T16:01:42Z",
+          "updatedAt": "2022-01-25T16:06:07Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nAccording to the RATS Architecture , two reference models for Challenge/Response Attestation have been proposed. This sections highlights the information flows between the Attester, Verifier and Relying Party undergoing Remote Attestation Procedure, using these models.\r\n```",
+              "createdAt": "2022-01-25T16:01:42Z",
+              "updatedAt": "2022-01-25T16:06:07Z"
+            },
+            {
+              "originalPosition": 39,
+              "body": "```suggestion\r\nThe background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attester conveys Evidence to the Relying Party, which does not process its payload, but relays the message and optionally checks it's signature against a policed trust anchor store. Upon receiving the evidence the Relying Party initiates a  with the Verifier. Once session is established, it forwards the received Evidence to the Verfier. The Verifier appraises the received Evidence according to its Appraisal Policy for Evidence and returns a corresponding Attestation Result to the Relying Party. The Relying Party then checks the\r\n```",
+              "createdAt": "2022-01-25T16:05:50Z",
+              "updatedAt": "2022-01-25T16:06:07Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
