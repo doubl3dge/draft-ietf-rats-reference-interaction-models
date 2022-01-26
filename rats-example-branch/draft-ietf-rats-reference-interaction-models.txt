@@ -506,7 +506,7 @@ Table of Contents
    1.  Passport Model
 
    The passport model is so named because of its resemblance to how
-   nations issue passports to their citizens.  In this Model, the
+   nations issue passports to their citizens.  In this model, the
    attestation sequence is a two step procedure.  In the first step, an
    Attester conveys Evidence to a Verifier which compares the Evidence
    against its appraisal policy.  The Verifier then gives back an
@@ -575,7 +575,7 @@ Table of Contents
      | evidence, eventLogs -------------------------------------> |                                      |
      |                                                            |                                      |
      |                                                            | handle, evidence, eventLogs -------> |
-     |                                                            |                                      |appraiseEvidence()
+     |                                                            |                                      |appraiseEvidenc()
      |                                                            |                                      |
      |                                                            |  attestationResults <--------------- |
      |                                                            |   (evidence, results)                |
