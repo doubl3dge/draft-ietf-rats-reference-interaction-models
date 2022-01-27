@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-01-26T17:51:51.470785+00:00",
+  "timestamp": "2022-01-27T08:21:21.583252+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
   "labels": [
     {
@@ -1612,7 +1612,7 @@
       "id": "PR_kwDOEYizNM4xjoA2",
       "title": "First draft of adding Interaction Model examples",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/46",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1622,17 +1622,19 @@
       "labels": [],
       "body": "@henkbirkholz : Please let me know, your views as to how is the information flow and anything else, we need to add?",
       "createdAt": "2022-01-25T12:46:36Z",
-      "updatedAt": "2022-01-26T17:51:34Z",
+      "updatedAt": "2022-01-27T02:06:19Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
       "baseRefName": "master",
       "baseRefOid": "0d3b884e7bcf8401e4edd529b2768f321a132c35",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
       "headRefName": "rats-example-branch",
-      "headRefOid": "8e2b32c7d50d952ce6ba4b375e99d9ba9f1a6f95",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "23bc4c58dc22a307d61c6cc905f97c3169b8b18e",
+      "closedAt": "2022-01-26T17:55:03Z",
+      "mergedAt": "2022-01-26T17:55:03Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "e44940656788aae4da81bdcf4af9e148b4bbeeb1"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1692,6 +1694,258 @@
               "updatedAt": "2022-01-25T16:06:07Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zfgS6",
+          "commit": {
+            "abbreviatedOid": "e918295"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-26T17:50:32Z",
+          "updatedAt": "2022-01-26T17:58:25Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nThe passport model is so named because of its resemblance to how nations issue passports to their citizens. In this model, the attestation sequence is a\r\n```",
+              "createdAt": "2022-01-26T17:50:32Z",
+              "updatedAt": "2022-01-26T17:58:25Z"
+            },
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nAccording to the RATS Architecture, two reference models for Challenge/Response Attestation have been proposed. This sections highlights the information flows bewteen the Attester, Verifier and Relying Party undergoing Remote Attestation Procedure, using these models.\r\n```",
+              "createdAt": "2022-01-26T17:51:18Z",
+              "updatedAt": "2022-01-26T17:58:25Z"
+            },
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\nthen gives back an Attestation Result to the Attester, which simply caches it. In the second step, the Attester presents the Attestation Result (and possibly additional Claims/evidence) to a Relying Party, which then compares this information against its own appraisal policy to establish the trustworthiness of the attester.\r\n```",
+              "createdAt": "2022-01-26T17:55:34Z",
+              "updatedAt": "2022-01-26T17:58:26Z"
+            },
+            {
+              "originalPosition": 35,
+              "body": "there seems to be a problem with NL here",
+              "createdAt": "2022-01-26T17:56:40Z",
+              "updatedAt": "2022-01-26T17:58:26Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "```suggestion\r\nThe background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attester conveys Evidence to the Relying Party, which does not process its payload, but realys the message and optionally check its signature against a policed trust anchor store. Upon receiving the evidence the Relying Party initiates a session with the Verifier. Once session is established, it forwards the received Evidence to the Verfier. The Verifier, appraises the received Evidence according to its appraisal policy for evidence and returns a corresponding Attestation Result to the Relying Party. The Relying Party then checks the Attestation Result against its own appraisal policy to conclude attestation.\r\n```",
+              "createdAt": "2022-01-26T17:57:00Z",
+              "updatedAt": "2022-01-26T17:58:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zfkHW",
+          "commit": {
+            "abbreviatedOid": "23bc4c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-26T18:02:34Z",
+          "updatedAt": "2022-01-26T18:02:34Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "Sure thanks Thomas, will look into this later today!",
+              "createdAt": "2022-01-26T18:02:34Z",
+              "updatedAt": "2022-01-26T18:02:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zfkfZ",
+          "commit": {
+            "abbreviatedOid": "23bc4c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-26T18:03:27Z",
+          "updatedAt": "2022-01-26T18:03:28Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "I think, I have already addressed it!\r\n\r\nThank You!",
+              "createdAt": "2022-01-26T18:03:27Z",
+              "updatedAt": "2022-01-26T18:03:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zfkoD",
+          "commit": {
+            "abbreviatedOid": "23bc4c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-26T18:03:47Z",
+          "updatedAt": "2022-01-26T18:03:47Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "Will correct this in next revision!",
+              "createdAt": "2022-01-26T18:03:47Z",
+              "updatedAt": "2022-01-26T18:03:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zcbBG",
+          "commit": {
+            "abbreviatedOid": "e918295"
+          },
+          "author": "William-PanWei",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2022-01-26T03:40:42Z",
+          "updatedAt": "2022-01-27T01:57:21Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nAccording to the RATS Architecture, two reference models for Challenge/Response Attestation have been proposed. This section highlights the information flows between the Attestor, Verifier, and Relying Party undergoing Remote Attestation Procedure, using these models.\r\n```",
+              "createdAt": "2022-01-26T03:40:42Z",
+              "updatedAt": "2022-01-27T01:57:21Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nThe passport model is so named because of its resemblance to how nations issue passports to their citizens. In this Model, the attestation sequence is a\r\n```",
+              "createdAt": "2022-01-26T03:40:56Z",
+              "updatedAt": "2022-01-27T01:57:21Z"
+            },
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\ntwo-step procedure. In the first step, an Attester conveys Evidence to a Verifier, which compares the Evidence against its appraisal policy.  The Verifier\r\n```",
+              "createdAt": "2022-01-26T03:42:00Z",
+              "updatedAt": "2022-01-27T01:57:21Z"
+            },
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\nthen gives back an Attestation Result to the Attester, which simply caches it. In the second step, the Attester presents the Attestation Result (and possibly additional Claims/evidence) to a Relying Party, which then compares this information against its own appraisal policy to establish the trustworthiness of the Attester.\r\n```",
+              "createdAt": "2022-01-26T03:42:52Z",
+              "updatedAt": "2022-01-27T01:59:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zhDZR",
+          "commit": {
+            "abbreviatedOid": "23bc4c5"
+          },
+          "author": "William-PanWei",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-27T02:02:32Z",
+          "updatedAt": "2022-01-27T02:02:32Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "The width of this diagram exceeds the width limitation of the I-D.",
+              "createdAt": "2022-01-27T02:02:32Z",
+              "updatedAt": "2022-01-27T02:02:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOEYizNM4zhDzX",
+          "commit": {
+            "abbreviatedOid": "23bc4c5"
+          },
+          "author": "William-PanWei",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-27T02:06:19Z",
+          "updatedAt": "2022-01-27T02:06:19Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "```suggestion\r\nThe background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attester conveys Evidence to the Relying Party, which does not process its payload, but relays the message and optionally checks its signature against a policed trust anchor store. Upon receiving the evidence the Relying Party initiates a session with the Verifier. Once the session is established, it forwards the received Evidence to the Verifier. The Verifier appraises the received Evidence according to its appraisal policy for Evidence and returns a corresponding Attestation Result to the Relying Party. The Relying Party then checks the Attestation Result against its own appraisal policy to conclude attestation.\r\n```",
+              "createdAt": "2022-01-27T02:06:19Z",
+              "updatedAt": "2022-01-27T02:06:19Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "id": "PR_kwDOEYizNM4xogEt",
+      "title": "Fix daigrams",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/47",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "@henkbirkholz Could you please check if this version Editor copy comes up nicely ?",
+      "createdAt": "2022-01-26T18:36:28Z",
+      "updatedAt": "2022-01-26T19:43:19Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "baseRefName": "master",
+      "baseRefOid": "e44940656788aae4da81bdcf4af9e148b4bbeeb1",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "headRefName": "further-tidyup",
+      "headRefOid": "cc56328bb0d1a868ad889baca1dc4098e5ddb338",
+      "closedAt": "2022-01-26T19:43:19Z",
+      "mergedAt": "2022-01-26T19:43:19Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "001c86289fbc02274a96cc4719f6735bfafc4dbc"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 48,
+      "id": "PR_kwDOEYizNM4xppwi",
+      "title": "fix some typos and optimize the newly added diagrams to adapt to the width limitation",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-reference-interaction-models/pull/48",
+      "state": "MERGED",
+      "author": "William-PanWei",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fix some typos and optimize the newly added diagrams to adapt to the width limitation",
+      "createdAt": "2022-01-27T03:21:26Z",
+      "updatedAt": "2022-01-27T08:21:00Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-reference-interaction-models",
+      "baseRefName": "master",
+      "baseRefOid": "7c6bc71a38fb4e0715b267407b551acc40175dda",
+      "headRepository": "William-PanWei/draft-ietf-rats-reference-interaction-models",
+      "headRefName": "patch-1",
+      "headRefOid": "af9ba2fb21ca7724578753bdeb9e9be8477ffc4b",
+      "closedAt": "2022-01-27T08:21:00Z",
+      "mergedAt": "2022-01-27T08:21:00Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "fe92482dfac6e8dc30e17492f6b47b49b07e009e"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOEYizNM4zh28N",
+          "commit": {
+            "abbreviatedOid": "af9ba2f"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "Thanks Wei!\r\n\r\nMy humongous backlog told me \"you'll fix this later\" and now you did. Awesome!",
+          "createdAt": "2022-01-27T08:20:34Z",
+          "updatedAt": "2022-01-27T08:20:34Z",
+          "comments": []
         }
       ]
     }
