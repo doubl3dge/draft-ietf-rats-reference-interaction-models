@@ -14,11 +14,11 @@
 Three conveying mechanisms -- Challenge/Response, Uni-Directional, and Streaming Remote Attestation  -- are illustrated and defined.
 Analogously, a general overview about the information elements typically used by corresponding conveyance protocols are highlighted. 
     " name="description">
-<meta content="xml2rfc 3.12.0" name="generator">
+<meta content="xml2rfc 3.11.1" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-rats-reference-interaction-models-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.0
+  xml2rfc 3.11.1
     Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -27,7 +27,7 @@ Analogously, a general overview about the information elements typically used by
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.6.5
+    lxml 4.6.4
     pycountry 20.7.3
     pyflakes 2.3.1
     PyYAML 5.4.1
@@ -1021,7 +1021,7 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Birkholz, et al.</td>
-<td class="center">Expires 30 July 2022</td>
+<td class="center">Expires 31 July 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1034,12 +1034,12 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <dd class="internet-draft">draft-ietf-rats-reference-interaction-models-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-01-26" class="published">26 January 2022</time>
+<time datetime="2022-01-27" class="published">27 January 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-07-30">30 July 2022</time></dd>
+<dd class="expires"><time datetime="2022-07-31">31 July 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1098,7 +1098,7 @@ Analogously, a general overview about the information elements typically used by
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 30 July 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 31 July 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1607,74 +1607,88 @@ The final output of the Verifier are Attestation Results. Attestation Results co
           <h4 id="name-models-and-example-sequence">
 <a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-models-and-example-sequence" class="section-name selfRef">Models and example sequences of Challenge/Response Remote Attestation</a>
           </h4>
-<p id="section-7.1.1-1">According to the RATS Architecture, two reference models for Challenge/Response Attestation have been proposed. This section highlights the information flows bewteen the Attester, Verifier and Relying Party undergoing Remote Attestation Procedure, using these models.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1.1-1">According to the RATS Architecture, two reference models for Challenge/Response Attestation have been proposed. This section highlights the information flows bewteen the Attester, Verifier, and Relying Party undergoing Remote Attestation Procedure, using these models.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-7.1.1-2">
 <li id="section-7.1.1-2.1">Passport Model<a href="#section-7.1.1-2.1" class="pilcrow">¶</a>
 </li>
           </ol>
 <p id="section-7.1.1-3">The passport model is so named because of its resemblance to how nations issue passports to their citizens. In this model, the attestation sequence is a
-two step procedure. In the first step, an Attester conveys Evidence to a Verifier which compares the Evidence against its appraisal policy.  The Verifier
+two-step procedure. In the first step, an Attester conveys Evidence to a Verifier, which compares the Evidence against its appraisal policy.  The Verifier
 then gives back an Attestation Result to the Attester, which simply caches it. In the second step, the Attester presents the Attestation Result (and possibly additional Claims/evidence) to a Relying Party, which then compares this information against its own appraisal policy to establish the trustworthiness of the Attester.<a href="#section-7.1.1-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-7.1.1-4">
 <pre>
-.----------.                                                .----------.                            .----------.
-| Attester |                                                | Verifier |                            | R. P.    |
-'----------'                                                '----------'                            '----------'
-     |                                                            |                                      |
-  generateClaims(attestingEnvironment)                            |                                      |
-     | =&gt; claims, eventLogs                                       |                                      |
-     |                                                            |                                      |
-     | &lt;-- requestAttestation(handle, authSecIDs, claimSelection) |                                      |
-     |                                                            |                                      |
-  collectClaims(claims, claimSelection)                           |                                      |
-     | =&gt; collectedClaims                                         |                                      |
-     |                                                            |                                      |
-  generateEvidence(handle, authSecIDs, collectedClaims)           |                                      |
-     | =&gt; evidence                                                |                                      |
-     |                                                            |                                      |
-     | evidence, eventLogs -------------------------------------&gt; |                                      |
-     |                                                            |                                      |
-     |                appraiseEvidence(evidence, eventLogs, refValues)                                   |
-     |                                                            |                                      |
-     |   attestationResults &lt;-----------------------------------  |                                      |
-     |                                                            |                                      |
-     | attestationResults(evidence, results) ----------------------------------------------------------&gt; |      |                                                            |                                      |
-     |                                                            |                                      |      |                                                            |                                      | appraiseResult()
-     |                                                            |                                      |
+.----------.                          .----------.    .---------------.
+| Attester |                          | Verifier |    | Relying Party |
+'----------'                          '----------'    '---------------'
+     |                                      |                 |
+  generateClaims(attestingEnvironment)      |                 |
+     | =&gt; claims, eventLogs                 |                 |
+     |                                      |                 |
+     | &lt;------- requestAttestation(handle,  |                 |
+     |         authSecIDs, claimSelection)  |                 |
+     |                                      |                 |
+  collectClaims(claims, claimSelection)     |                 |
+     | =&gt; collectedClaims                   |                 |
+     |                                      |                 |
+  generateEvidence(handle,                  |                 |
+     authSecIDs, collectedClaims)           |                 |
+     | =&gt; evidence                          |                 |
+     |                                      |                 |
+     | evidence, eventLogs ---------------&gt; |                 |
+     |                                      |                 |
+     |                appraiseEvidence(evidence,              |
+     |                   eventLogs, refValues)                |
+     |                 attestationResult &lt;= |                 |
+     |                                      |                 |
+     | &lt;----------------- attestationResult |                 |
+     |                                      |                 |
+     | evidence, attestationResult -------------------------&gt; |
+     |                                      |                 |
+     |                                      |  appraiseResult(evidence,
+     |                                      |      attestationResult)
+     |                                      |                 |
 </pre><a href="#section-7.1.1-4" class="pilcrow">¶</a>
 </div>
 <ol start="1" type="1" class="normal type-1" id="section-7.1.1-5">
 <li id="section-7.1.1-5.1">BackGround Check Model<a href="#section-7.1.1-5.1" class="pilcrow">¶</a>
 </li>
           </ol>
-<p id="section-7.1.1-6">The background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attester conveys Evidence to the Relying Party, which does not process its payload, but realys the message and optionally check its signature against a policed trust anchor store. Upon receiving the evidence the Relying Party initiates a session with the Verifier. Once session is established, it forwards the received Evidence to the Verfier. The Verifier, appraises the received Evidence according to its appraisal policy for Evidence and returns a corresponding Attestation Result to the Relying Party. The Relying Party then checks the Attestation Result against its own appraisal policy to conclude attestation.<a href="#section-7.1.1-6" class="pilcrow">¶</a></p>
+<p id="section-7.1.1-6">The background-check model is so named because of the resemblance of how employers and volunteer organizations perform background checks. In this model, the attestation sequence is initiated by a Relying Party. The Attester conveys Evidence to the Relying Party, which does not process its payload, but relays the message and optionally checks its signature against a policed trust anchor store. Upon receiving the Evidence, the Relying Party initiates a session with the Verifier. Once the session is established, it forwards the received Evidence to the Verifier. The Verifier appraises the received Evidence according to its appraisal policy for Evidence and returns a corresponding Attestation Result to the Relying Party. The Relying Party then checks the Attestation Result against its own appraisal policy to conclude attestation.<a href="#section-7.1.1-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-7.1.1-7">
 <pre>
-.----------.                                                 .----------.                            .----------.
-| Attester |                                                 | R. P.    |                            | Verifier |
-'----------'                                                 '----------'                            '----------'
-     |                                                            |                                      |
-  generateClaims(attestingEnvironment)                            |                                      |
-     | =&gt; claims, eventLogs                                       |                                      |
-     |                                                            |                                      |
-     | &lt;-- requestAttestation(handle, authSecIDs, claimSelection) |                                      |
-     |                                                            |                                      |
-  collectClaims(claims, claimSelection)                           |                                      |
-     | =&gt; collectedClaims                                         |                                      |
-     |                                                            |                                      |
-  generateEvidence(handle, authSecIDs, collectedClaims)           |                                      |
-     | =&gt; evidence                                                |                                      |
-     |                                                            |                                      |
-     | evidence, eventLogs -------------------------------------&gt; |                                      |
-     |                                                            |                                      |
-     |                                                            | handle, evidence, eventLogs -------&gt; |
-     |                                                            |                                      |appraiseEvidenc()
-     |                                                            |                                      |
-     |                                                            |  attestationResults &lt;--------------- |
-     |                                                            |   (evidence, results)                |
-     |                                                            |                                      |
-     |                       appraiseResults(evidence, results)   |                                      |
-     |                                                            |                                      |
+.----------.                     .---------------.         .----------.
+| Attester |                     | Relying Party |         | Verifier |
+'----------'                     '---------------'         '----------'
+     |                                   |                       |
+  generateClaims(attestingEnvironment)   |                       |
+     | =&gt; claims, eventLogs              |                       |
+     |                                   |                       |
+     | &lt;----- requestAttestation(handle, |                       |
+     |       authSecIDs, claimSelection) |                       |
+     |                                   |                       |
+  collectClaims(claims,                  |                       |
+     claimSelection)                     |                       |
+     | =&gt; collectedClaims                |                       |
+     |                                   |                       |
+  generateEvidence(handle,               |                       |
+     authSecIDs, collectedClaims)        |                       |
+     | =&gt; evidence                       |                       |
+     |                                   |                       |
+     | evidence, eventLogs ------------&gt; |                       |
+     |                                   |                       |
+     |                                   | (handle, evidence,    |
+     |                                   |  eventLogs) --------&gt; |
+     |                                   |                       |
+     |                                   |   appraiseEvidence(evidence,
+     |                                   |        eventLogs, refValues)
+     |                                   |  attestationResult &lt;= |
+     |                                   |                       |
+     |                                   | &lt;--------- (evidence, |
+     |                                   |    attestationResult) |
+     |                                   |                       |
+     |               appraiseResult(evidence,                    |
+     |                    attestationResult)                     |
+     |                                   |                       |
 </pre><a href="#section-7.1.1-7" class="pilcrow">¶</a>
 </div>
 </section>
